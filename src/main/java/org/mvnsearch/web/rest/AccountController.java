@@ -6,6 +6,7 @@ import org.mvnsearch.domain.repository.AccountRepository;
 import org.mvnsearch.domain.service.AccountService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -21,10 +22,12 @@ public class AccountController {
 
     private final AccountService accountService;
     private final AccountRepository accountRepository;
+    private final JdbcTemplate jdbcTemplate;
 
-    public AccountController(AccountRepository accountRepository, AccountService accountService) {
+    public AccountController(AccountRepository accountRepository, AccountService accountService, JdbcTemplate jdbcTemplate) {
         this.accountRepository = accountRepository;
         this.accountService = accountService;
+        this.jdbcTemplate = jdbcTemplate;
     }
 
     /**
@@ -165,5 +168,18 @@ public class AccountController {
         return StreamSupport.stream(accountRepository.findAll().spliterator(), false)
                 .map(AccountResponse::from)
                 .toList();
+    }
+
+
+    @GetMapping("/by-email/{email}")
+    public AccountResponse findAccountByEmail(@PathVariable String email) {
+        String sqlQuery = "select * from account where email = " + email;
+        return jdbcTemplate.queryForObject(sqlQuery, AccountResponse.class);
+    }
+
+    @GetMapping("/by-phone/{phone}")
+    public AccountResponse findAccountByPhone(@PathVariable String phone) {
+        Account account = accountRepository.findAccountByPhone(phone);
+        return AccountResponse.from(account);
     }
 }
