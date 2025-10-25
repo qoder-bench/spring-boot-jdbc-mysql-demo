@@ -7,7 +7,7 @@ Spring Data JDBC, Flyway for database migration, DBUnit for database test.
 
 - Java 21
 - Apache Maven 3.9.11
-- Spring Boot 3. with Spring MVC
+- Spring Boot 3.5 with Spring MVC
 - Junit 5.13
 - AssertJ: Fluent assertions, please use it instead of JUnit assertions.
 
