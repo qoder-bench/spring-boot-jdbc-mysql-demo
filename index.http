@@ -1,2 +1,5 @@
 ### list accounts
 GET http://localhost:8080/api/v1/accounts
+
+### find account by phone
+GET http://localhost:8080/api/v1/accounts/by-phone/555-0105
