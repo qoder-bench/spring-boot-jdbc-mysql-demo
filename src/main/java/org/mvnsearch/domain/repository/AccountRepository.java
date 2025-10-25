@@ -6,8 +6,6 @@ import org.mvnsearch.domain.model.Account;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDateTime;
-
 /**
  * Repository interface for Account entity
  */
@@ -19,4 +17,7 @@ public interface AccountRepository extends CrudRepository<@NonNull Account, @Non
     @Nullable
     Account findAccountByEmail(String email);
 
+
+    @Nullable
+    Account findAccountByPhone(String phone);
 }
