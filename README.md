@@ -12,5 +12,7 @@ Spring Boot demo with MySQL and JDBC.
 
 # References
 
-* [Cursor AI rules for Java](https://github.com/jabrena/cursor-rules-java): A collection of System prompts for Java that
+- [Cursor rules for Spring Boot](https://github.com/jabrena/cursor-rules-spring-boot): a collection of Cursor rules
+  designed for Spring-Boot development.
+- [Cursor AI rules for Java](https://github.com/jabrena/cursor-rules-java): A collection of System prompts for Java that
   help software engineers in their daily programming work & data pipelines
