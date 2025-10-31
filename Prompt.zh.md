@@ -1,22 +1,22 @@
-# New Requirement
+# 新需求
 
-Need to add Blog functionality to `Account`, which is member blogs. Please complete the requirements according to the following:
+需要给`Account`添加Blog功能，也就是会员博客，请根据如下要求完成需求：
 
-- Create corresponding table structure and associate it with the account table. Please use Flyway to create and create corresponding sample datasets.
-- Create corresponding Repository interface, mainly responsible for CRUD work
-- Create corresponding Service interface, mainly responsible for blog creation, update, and deletion
-- Create corresponding RESTful BlogController, responsible for blog creation, modification, deletion, and querying
-- Create corresponding unit tests, mainly for Repository and Service
+- 创建对应的表结构并和account表进行关联，请使用flyway创建，并创建对应的样例数据集。
+- 创建对应的Repository接口，主要负责CRUD的工作
+- 创建对应的Service接，主要负责blog的创建、更新和删除
+- 创建对应的RESTfull BlogController，负责blog的创建、修改、删除和查询
+- 创建对应的单元测试，主要是Repository和Service
 
-Related code structure and implementation can refer to the `Account` implementation.
+相关的代码结构和实现，可以参考`Account`的实现。
 
-# SQL Injection
+# SQL注入
 
-The security team discovered through code scanning tools that `AccountController.java` contains SQL injection vulnerabilities. Please help find this issue and fix it.
+安全团队通过代码扫描工具发现`AccountController.java`包含SQL注入漏洞，请协助找出该问题，并修复该问题。
 
-# Null Pointer Exception
+# 空指针
      
-I found the following exception information in the log file:
+我在日志文件中找到如下异常信息：
 
 ```
 java.lang.NullPointerException: Cannot invoke "org.mvnsearch.domain.model.Account.getId()" because "account" is null
@@ -73,6 +73,4 @@ java.lang.NullPointerException: Cannot invoke "org.mvnsearch.domain.model.Accoun
 	at java.base/java.lang.VirtualThread.run(VirtualThread.java:456) ~[na:na]
 ```
 
-Please help fix this bug.
-
-
+请协助修复该bug。
