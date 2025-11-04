@@ -14,3 +14,7 @@ dbunit-operation: database-migrate
 # mysql CLI
 mysql-cli:
     mysql -h 127.0.0.1 -P 13306 -u root -p test
+
+# SBOM generation: target/application.cdx.json
+sbom-generate:
+    mvn -DprojectType=application -DoutputName=application.cdx -DoutputFormat=json cyclonedx:makeAggregateBom
