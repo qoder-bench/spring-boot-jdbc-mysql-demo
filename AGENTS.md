@@ -6,7 +6,7 @@ Spring Data JDBC, Flyway for database migration, DBUnit for database test.
 ## Tech Stack
 
 - Java 21
-- Apache Maven 3.9.11
+- Apache Maven 3.9.11: `flyway-maven-plugin` and `dbunit-maven-plugin` included.
 - Spring Boot 3.5 with Spring MVC
 - Junit 5.13
 - AssertJ: Fluent assertions, please use it instead of JUnit assertions.
