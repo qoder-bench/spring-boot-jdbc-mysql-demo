@@ -1,23 +1,23 @@
 # Spring Boot JDBC MySQL Demo
 
-一个基于 [Spring Boot](https://spring.io/projects/spring-boot) 和 MySQL 的企业级应用示例项目。采用 DDD（领域驱动设计）架构，展示了如何使用 Spring Data JDBC、Flyway 数据库迁移和 DBUnit 测试来构建可维护的 Java 应用。
+An enterprise-level application demo project based on [Spring Boot](https://spring.io/projects/spring-boot) and MySQL. Adopts DDD (Domain-Driven Design) architecture and demonstrates how to build maintainable Java applications using Spring Data JDBC, Flyway database migrations, and DBUnit testing.
 
-## 技术栈
+## Tech Stack
 
 - **Java**: 21
 - **Spring Boot**: 3.5.7
-- **Spring Data JDBC**: 数据访问层
-- **H2 Database**: 内存数据库（默认）
-- **MySQL**: 9.4.0（可选）
-- **Flyway**: 11.15.0 (数据库迁移)
-- **DBUnit**: 1.2.0 (数据库测试)
-- **Maven**: 3.9.11+ (构建工具)
-- **JUnit**: 5.13+ (单元测试)
-- **AssertJ**: 流式断言库
-- **jspecify**: 1.0.0 (类型注解)
-- **ErrorProne + NullAway**: 静态代码分析
+- **Spring Data JDBC**: Data access layer
+- **H2 Database**: In-memory database (default)
+- **MySQL**: 9.4.0 (optional)
+- **Flyway**: 11.15.0 (Database migration)
+- **DBUnit**: 1.2.0 (Database testing)
+- **Maven**: 3.9.11+ (Build tool)
+- **JUnit**: 5.13+ (Unit testing)
+- **AssertJ**: Fluent assertions library
+- **jspecify**: 1.0.0 (Type annotations)
+- **ErrorProne + NullAway**: Static code analysis
 
-## 项目结构
+## Project Structure
 
 ```
 spring-boot-jdbc-mysql-demo/
@@ -25,15 +25,15 @@ spring-boot-jdbc-mysql-demo/
 │   ├── main/
 │   │   ├── java/
 │   │   │   └── org/mvnsearch/
-│   │   │       ├── SpringBoot4DemoApp.java    # 应用入口
-│   │   │       ├── domain/                     # 领域层
-│   │   │       │   ├── model/                  # 领域模型
+│   │   │       ├── SpringBoot4DemoApp.java    # Application entry point
+│   │   │       ├── domain/                     # Domain layer
+│   │   │       │   ├── model/                  # Domain models
 │   │   │       │   │   └── Account.java
-│   │   │       │   ├── service/                # 领域服务接口
+│   │   │       │   ├── service/                # Domain service interfaces
 │   │   │       │   │   └── AccountService.java
-│   │   │       │   ├── repository/             # 仓储接口
+│   │   │       │   ├── repository/             # Repository interfaces
 │   │   │       │   │   └── AccountRepository.java
-│   │   │       │   └── impl/                   # 领域实现
+│   │   │       │   └── impl/                   # Domain implementations
 │   │   │       │       └── service/
 │   │   │       │           └── AccountServiceImpl.java
 │   │   │       └── web/
@@ -41,194 +41,192 @@ spring-boot-jdbc-mysql-demo/
 │   │   │               ├── AccountController.java
 │   │   │               └── PortalController.java
 │   │   └── resources/
-│   │       ├── application.properties          # 应用配置
+│   │       ├── application.properties          # Application configuration
 │   │       └── db/
-│   │           ├── migration/                  # Flyway 迁移脚本
+│   │           ├── migration/                  # Flyway migration scripts
 │   │           │   └── V1__create_account_table.sql
-│   │           └── dataset/                    # DBUnit 测试数据
+│   │           └── dataset/                    # DBUnit test data
 │   │               └── account-dataset.xml
 │   └── test/
 │       └── java/
 │           └── org/mvnsearch/
-│               ├── ProjectBaseTest.java        # 测试基类
+│               ├── ProjectBaseTest.java        # Test base class
 │               └── domain/
 │                   ├── repository/
 │                   │   └── AccountRepositoryTest.java
 │                   └── impl/
 │                       └── service/
 │                           └── AccountServiceImplTest.java
-├── docker-compose.yaml                         # Docker Compose 配置
-├── pom.xml                                     # Maven 配置
-├── Justfile                                    # Just 任务定义
+├── docker-compose.yaml                         # Docker Compose configuration
+├── pom.xml                                     # Maven configuration
+├── Justfile                                    # Just task definitions
 └── README.md
 ```
 
-## 架构设计
+## Architecture Design
 
-### DDD 领域驱动设计
+### DDD - Domain-Driven Design
 
-项目采用 DDD 架构，清晰分离各层职责：
+The project adopts DDD architecture with clear separation of concerns:
 
-**领域层 (Domain Layer)** - `org.mvnsearch.domain`
-- **Model**: 领域模型/实体 (`org.mvnsearch.domain.model`)
-- **Service**: 领域服务接口 (`org.mvnsearch.domain.service`)
-- **Repository**: 仓储接口 (`org.mvnsearch.domain.repository`)
-- **Implementation**: 接口实现 (`org.mvnsearch.domain.impl`)
+**Domain Layer** - `org.mvnsearch.domain`
+- **Model**: Domain models/entities (`org.mvnsearch.domain.model`)
+- **Service**: Domain service interfaces (`org.mvnsearch.domain.service`)
+- **Repository**: Repository interfaces (`org.mvnsearch.domain.repository`)
+- **Implementation**: Interface implementations (`org.mvnsearch.domain.impl`)
 
-**应用层 (Application Layer)** - `org.mvnsearch.web`
-- **REST API**: RESTful 控制器 (`org.mvnsearch.web.rest`)
+**Application Layer** - `org.mvnsearch.web`
+- **REST API**: RESTful controllers (`org.mvnsearch.web.rest`)
 - **Base URL**: `/api/v1`
 
-### 命名约定
+### Naming Conventions
 
-- 服务接口: `XxxxService`
-- 服务实现: `XxxxServiceImpl` (位于 `impl.service` 包)
-- 仓储接口: `XxxxRepository`
-- 仓储实现: `XxxxRepositoryImpl` (位于 `impl.repository` 包)
+- Service interface: `XxxxService`
+- Service implementation: `XxxxServiceImpl` (in `impl.service` package)
+- Repository interface: `XxxxRepository`
+- Repository implementation: `XxxxRepositoryImpl` (in `impl.repository` package)
 
-## 功能特性
+## Features
 
-- ✅ DDD 领域驱动设计架构
-- ✅ Spring Data JDBC 数据访问
-- ✅ Flyway 数据库版本管理
-- ✅ DBUnit 数据库集成测试
-- ✅ RESTful API 设计
-- ✅ Docker Compose 环境
-- ✅ Maven 插件集成
-- ✅ Virtual Threads 支持
-- ✅ ErrorProne 静态分析
-- ✅ NullAway 空指针检查
+- ✅ DDD Domain-Driven Design architecture
+- ✅ Spring Data JDBC data access
+- ✅ Flyway database version control
+- ✅ DBUnit database integration testing
+- ✅ RESTful API design
+- ✅ Docker Compose environment
+- ✅ Maven plugin integration
+- ✅ Virtual Threads support
+- ✅ ErrorProne static analysis
+- ✅ NullAway null pointer checking
 
-## 快速开始
+## Quick Start
 
-### 前置要求
+### Prerequisites
 
-- Java 21 或更高版本
-- Maven 3.9.11+ 或更高版本
-- (可选) [just](https://github.com/casey/just) - 任务运行器
-- (可选) Docker & Docker Compose (如需使用真实 MySQL)
+- Java 21 or higher
+- Maven 3.9.11+ or higher
+- (Optional) [just](https://github.com/casey/just) - Task runner
+- (Optional) Docker & Docker Compose (if using real MySQL)
 
-### 数据库配置
+### Database Configuration
 
-**默认使用 H2 内存数据库**，无需额外安装：
+**Uses H2 in-memory database by default**, no additional installation required:
 - **JDBC URL**: jdbc:h2:mem:testdb
-- **用户名**: sa
-- **密码**: (空)
-- **H2 控制台**: http://localhost:8080/h2-console
+- **Username**: sa
+- **Password**: (empty)
+- **H2 Console**: http://localhost:8080/h2-console
 
-**如需使用 MySQL**:
-1. 启动 MySQL: `docker-compose up -d`
-2. 修改 `application.properties`，注释 H2 配置，取消注释 MySQL 配置
-3. MySQL 配置：
-   - **端口**: 3306
-   - **数据库**: test
-   - **用户名**: root
-   - **密码**: 123456
+**To use MySQL**:
+1. Start MySQL: `docker-compose up -d`
+2. Modify `application.properties`, comment H2 config, uncomment MySQL config
+3. MySQL configuration:
+   - **Port**: 3306
+   - **Database**: test
+   - **Username**: root
+   - **Password**: 123456
 
-### 数据库迁移
+### Database Migration
 
-使用 Flyway 进行数据库迁移：
+Use Flyway for database migration:
 
 ```bash
-# 使用 just (推荐)
+# Using just (recommended)
 just database-migrate
 
-# 或使用 Maven
+# Or using Maven
 mvn flyway:clean
 mvn flyway:migrate
 ```
 
-### 构建和运行
+### Build and Run
 
 ```bash
-# 构建项目
+# Build project
 mvn clean package
 
-# 运行应用
+# Run application
 mvn spring-boot:run
-
 ```
 
-应用将在 `http://localhost:8080` 启动。
+The application will start at `http://localhost:8080`.
 
-### 访问应用
+### Access Application
 
-- **健康检查**: http://localhost:8080/actuator/health
-- **账户 API**: http://localhost:8080/api/v1/accounts
-- **H2 控制台**: http://localhost:8080/h2-console
+- **Health Check**: http://localhost:8080/actuator/health
+- **Account API**: http://localhost:8080/api/v1/accounts
+- **H2 Console**: http://localhost:8080/h2-console
   - JDBC URL: `jdbc:h2:mem:testdb`
-  - 用户名: `sa`
-  - 密码: (留空)
+  - Username: `sa`
+  - Password: (leave empty)
 
-## API 端点
+## API Endpoints
 
-### 账户管理 API
+### Account Management API
 
-#### 获取所有账户
+#### Get All Accounts
 ```http
 GET http://localhost:8080/api/v1/accounts
 ```
 
-#### 根据手机号查询账户
+#### Query Account by Phone
 ```http
 GET http://localhost:8080/api/v1/accounts/by-phone/{phone}
 ```
 
-## 配置
+## Configuration
 
 ### application.properties
 
-项目默认配置使用 H2 内存数据库：
+Project default configuration uses H2 in-memory database:
 
 ```properties
-# H2 内存数据库配置
+# H2 in-memory database configuration
 spring.datasource.driver-class-name=org.h2.Driver
 spring.datasource.url=jdbc:h2:mem:testdb;MODE=MySQL;DATABASE_TO_UPPER=FALSE;DB_CLOSE_DELAY=-1
 spring.datasource.username=sa
 spring.datasource.password=
 
-# H2 控制台
+# H2 Console
 spring.h2.console.enabled=true
 spring.h2.console.path=/h2-console
-
 ```
 
-**切换到 MySQL**：在 `application.properties` 中注释 H2 配置，取消注释 MySQL 配置即可。
+**Switch to MySQL**: Comment H2 configuration and uncomment MySQL configuration in `application.properties`.
 
-### H2 控制台使用
+### H2 Console Usage
 
-访问 http://localhost:8080/h2-console 后：
+After visiting http://localhost:8080/h2-console:
 
-1. **JDBC URL**: 输入 `jdbc:h2:mem:testdb`
-2. **User Name**: 输入 `sa`
-3. **Password**: 留空
-4. 点击 "Connect" 连接
+1. **JDBC URL**: Enter `jdbc:h2:mem:testdb`
+2. **User Name**: Enter `sa`
+3. **Password**: Leave empty
+4. Click "Connect" to connect
 
-连接成功后可以：
-- 查看表结构
-- 执行 SQL 查询
-- 管理数据
+After successful connection, you can:
+- View table structure
+- Execute SQL queries
+- Manage data
 
-### 注意事项
+### Notes
 
-**关于大小写**：
-- H2 配置了 `DATABASE_TO_UPPER=FALSE` 以保持表名为小写（`account`）
-- 但列名使用大写（`ID`, `USERNAME` 等），这是为了与 Spring Data JDBC 的默认行为保持一致
-- Spring Data JDBC 生成的 SQL 查询默认使用大写列名
-- 如果你在 H2 控制台中手写 SQL，可以使用小写或大写列名，H2 会自动匹配
+**About Case Sensitivity**:
+- H2 is configured with `DATABASE_TO_UPPER=FALSE` to keep table names lowercase (`account`)
+- Column names use uppercase (`ID`, `USERNAME`, etc.) to align with Spring Data JDBC default behavior
+- Spring Data JDBC generated SQL queries use uppercase column names by default
+- If you write SQL manually in H2 console, you can use lowercase or uppercase column names, H2 will match automatically
 
-## 参考资源
+## References
 
-- [Spring Boot 文档](https://docs.spring.io/spring-boot/index.html)
-- [Spring Data JDBC 文档](https://docs.spring.io/spring-data/jdbc/reference/)
-- [H2 Database 文档](https://www.h2database.com/html/main.html)
-- [Flyway 文档](https://flywaydb.org/documentation/)
-- [DBUnit 文档](http://dbunit.sourceforge.net/)
-- [MySQL 文档](https://dev.mysql.com/doc/)
-- [jspecify 文档](https://jspecify.dev/)
-- [AssertJ 文档](https://assertj.github.io/doc/)
-- [Just 命令运行器](https://github.com/casey/just)
+- [Spring Boot Documentation](https://docs.spring.io/spring-boot/index.html)
+- [Spring Data JDBC Documentation](https://docs.spring.io/spring-data/jdbc/reference/)
+- [H2 Database Documentation](https://www.h2database.com/html/main.html)
+- [Flyway Documentation](https://flywaydb.org/documentation/)
+- [DBUnit Documentation](http://dbunit.sourceforge.net/)
+- [MySQL Documentation](https://dev.mysql.com/doc/)
+- [jspecify Documentation](https://jspecify.dev/)
+- [AssertJ Documentation](https://assertj.github.io/doc/)
+- [Just Command Runner](https://github.com/casey/just)
 
-## 许可证
+## License
 
-本项目遵循项目根目录下 LICENSE 文件中指定的许可证。
+This project follows the license specified in the LICENSE file in the project root directory.
