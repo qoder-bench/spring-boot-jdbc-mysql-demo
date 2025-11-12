@@ -19,22 +19,22 @@ public class Account {
     private String email;
     private String password;
     
-    @Column("first_name")
+    @Column("FIRST_NAME")
     private String firstName;
     
-    @Column("last_name")
+    @Column("LAST_NAME")
     private String lastName;
     
     private String phone;
     private AccountStatus status;
     
-    @Column("created_at")
+    @Column("CREATED_AT")
     private LocalDateTime createdAt;
     
-    @Column("updated_at")
+    @Column("UPDATED_AT")
     private LocalDateTime updatedAt;
     
-    @Column("last_login_at")
+    @Column("LAST_LOGIN_AT")
     private LocalDateTime lastLoginAt;
 
     public Account() {

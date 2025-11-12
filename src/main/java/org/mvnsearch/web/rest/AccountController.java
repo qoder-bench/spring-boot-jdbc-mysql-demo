@@ -67,6 +67,9 @@ public class AccountController {
             LocalDateTime lastLoginAt
     ) {
         public static AccountResponse from(Account account) {
+            if (account == null){
+                return new AccountResponse(null,null,null,null,null,null,null,null,null);
+            }
             return new AccountResponse(
                     account.getId(),
                     account.getUsername(),
@@ -173,8 +176,9 @@ public class AccountController {
 
     @GetMapping("/by-email/{email}")
     public AccountResponse findAccountByEmail(@PathVariable String email) {
-        String sqlQuery = "select * from account where email = " + email;
-        return jdbcTemplate.queryForObject(sqlQuery, AccountResponse.class);
+        // 使用 Repository 方法，避免 SQL 注入
+        Account account = accountRepository.findAccountByEmail(email);
+        return AccountResponse.from(account);
     }
 
     @GetMapping("/by-phone/{phone}")
