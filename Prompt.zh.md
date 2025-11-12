@@ -5,7 +5,7 @@
 - 创建对应的表结构并和account表进行关联，请使用flyway创建，并创建对应的样例数据集。
 - 创建对应的Repository接口，主要负责CRUD的工作
 - 创建对应的Service接，主要负责blog的创建、更新和删除
-- 创建对应的RESTfull BlogController，负责blog的创建、修改、删除和查询
+- 创建对应的RESTful BlogController，负责blog的创建、修改、删除和查询
 - 创建对应的单元测试，主要是Repository和Service
 
 相关的代码结构和实现，可以参考`Account`的实现。
