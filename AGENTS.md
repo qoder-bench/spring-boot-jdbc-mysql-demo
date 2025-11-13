@@ -60,7 +60,7 @@ Available recipes:
 
 ## Java Guide line
 
-- Use jspecify to annotate nullable and non-nullable types: `org.jspecify.annotations.NonNull` and
+- Null Safety: use JSpecify to annotate nullable and non-nullable types: `org.jspecify.annotations.NonNull` and
   `org.jspecify.annotations.Nullable`
 - Use slf4j for logging
 - Use Jakarta EE instead of Java EE:  for example `jakarta.servlet.*` instead of `javax.servlet.*`
