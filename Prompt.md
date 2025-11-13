@@ -1,5 +1,9 @@
-# New Requirement
+## Task 1
 
+**Task Type:** Feature Implementation
+
+**Prompt:**
+```
 Need to add Blog functionality to `Account`, which is member blogs. Please complete the requirements according to the following:
 
 - Create corresponding table structure and associate it with the account table. Please use Flyway to create and create corresponding sample datasets.
@@ -9,16 +13,27 @@ Need to add Blog functionality to `Account`, which is member blogs. Please compl
 - Create corresponding unit tests, mainly for Repository and Service
 
 Related code structure and implementation can refer to the `Account` implementation.
+```
 
-# SQL Injection
 
+## Task 2
+
+**Task Type:** Bug Fix
+
+**Prompt:**
+```
 The security team discovered through code scanning tools that `AccountController.java` contains SQL injection vulnerabilities. Please help find this issue and fix it.
+```
 
-# Null Pointer Exception
-     
+
+## Task 3
+
+**Task Type:** Bug Fix
+
+**Prompt:**
+```
 I found the following exception information in the log file:
 
-```
 java.lang.NullPointerException: Cannot invoke "org.mvnsearch.domain.model.Account.getId()" because "account" is null
 	at org.mvnsearch.web.rest.AccountController$AccountResponse.from(AccountController.java:71) ~[classes/:na]
 	at org.mvnsearch.web.rest.AccountController.findAccountByPhone(AccountController.java:183) ~[classes/:na]
@@ -71,8 +86,6 @@ java.lang.NullPointerException: Cannot invoke "org.mvnsearch.domain.model.Accoun
 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
 	at java.base/java.lang.VirtualThread.run(VirtualThread.java:456) ~[na:na]
-```
 
 Please help fix this bug.
-
-
+```
