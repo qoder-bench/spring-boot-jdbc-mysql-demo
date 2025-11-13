@@ -2,10 +2,10 @@
 
 Need to add Blog functionality to `Account`, which is member blogs. Please complete the requirements according to the following:
 
-- Create corresponding table structure and associate it with the account table. Please use Flyway to create and create corresponding sample datasets.
-- Create corresponding Repository interface, mainly responsible for CRUD work
-- Create corresponding Service interface, mainly responsible for blog creation, update, and deletion
-- Create corresponding RESTful BlogController, responsible for blog creation, modification, deletion, and querying
+- Create a corresponding table structure and associate it with the account table. Please use Flyway to create and create corresponding sample datasets.
+- Create a corresponding Repository interface, mainly responsible for CRUD work
+- Create a corresponding Service interface, mainly responsible for blog creation, update, and deletion
+- Create a corresponding RESTful BlogController, responsible for blog creation, modification, deletion, and querying
 - Create corresponding unit tests, mainly for Repository and Service
 
 Related code structure and implementation can refer to the `Account` implementation.
