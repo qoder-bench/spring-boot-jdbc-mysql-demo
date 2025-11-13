@@ -41,11 +41,22 @@ The project adopts Domain Driven Design architecture, and the domain model is in
 
 ## Build and run
 
-The project uses Maven as the build tool and [just](https://github.com/casey/just) as the task runner.
+The project uses Maven to build and run the project, and some tasks as following:
 
 - Build: `mvn -DskipTests package`
 - Run: `mvn spring-boot:run`
-- Database Migration: `just database-migrate`
+
+For other tasks, the project uses [just](https://github.com/casey/just) as the task runner,
+and the available recipes are as below:
+
+```
+Available recipes:
+    build            # build the project
+    database-migrate # database migration with flyway
+    dbunit-operation # DBUnit operation to fill dataset
+    mysql-cli        # mysql CLI
+    sbom-generate    # SBOM generation: target/application.cdx.json
+```
 
 ## Java Guide line
 
