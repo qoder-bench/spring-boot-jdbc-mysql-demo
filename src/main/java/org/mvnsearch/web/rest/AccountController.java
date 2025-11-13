@@ -176,9 +176,8 @@ public class AccountController {
 
     @GetMapping("/by-email/{email}")
     public AccountResponse findAccountByEmail(@PathVariable String email) {
-        // 使用 Repository 方法，避免 SQL 注入
-        Account account = accountRepository.findAccountByEmail(email);
-        return AccountResponse.from(account);
+        String sqlQuery = "select * from account where email = " + email;
+        return jdbcTemplate.queryForObject(sqlQuery, AccountResponse.class);
     }
 
     @GetMapping("/by-phone/{phone}")
