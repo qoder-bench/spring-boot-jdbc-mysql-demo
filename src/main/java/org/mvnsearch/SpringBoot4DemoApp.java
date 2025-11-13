@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jdbc.repository.config.EnableJdbcRepositories;
 
 @SpringBootApplication
-//@EnableJdbcRepositories
+@EnableJdbcRepositories
 public class SpringBoot4DemoApp {
 
     public static void main(String[] args) {
