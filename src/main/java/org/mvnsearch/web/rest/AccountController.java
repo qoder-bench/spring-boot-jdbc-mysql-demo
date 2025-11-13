@@ -67,9 +67,6 @@ public class AccountController {
             LocalDateTime lastLoginAt
     ) {
         public static AccountResponse from(Account account) {
-            if (account == null){
-                return new AccountResponse(null,null,null,null,null,null,null,null,null);
-            }
             return new AccountResponse(
                     account.getId(),
                     account.getUsername(),
