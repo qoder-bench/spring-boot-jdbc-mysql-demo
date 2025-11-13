@@ -15,7 +15,7 @@
     <description>Spring Boot demo with MySQL + JDBC</description>
     <properties>
         <java.version>21</java.version>
-        <flyway.version>11.15.0</flyway.version>
+        <flyway.version>11.17.0</flyway.version>
         <jdbc_url>jdbc:mysql://localhost:13306/test</jdbc_url>
         <jdbc_user>root</jdbc_user>
         <jdbc_password>123456</jdbc_password>

@@ -4,8 +4,8 @@ build:
 
 # database migration with flyway
 database-migrate:
-    mvn org.flywaydb:flyway-maven-plugin:11.15.0:clean
-    mvn org.flywaydb:flyway-maven-plugin:11.15.0:migrate
+    mvn org.flywaydb:flyway-maven-plugin:11.17.0:clean
+    mvn org.flywaydb:flyway-maven-plugin:11.17.0:migrate
 
 # DBUnit operation to fill dataset
 dbunit-operation: database-migrate
