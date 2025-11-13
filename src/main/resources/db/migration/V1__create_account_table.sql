@@ -1,4 +1,9 @@
--- Create account table
+/*---
+description: account related tables
+dialect: postgresql 17.4
+---*/
+
+-- account table
 CREATE TABLE account
 (
     ID            BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -14,6 +19,6 @@ CREATE TABLE account
     LAST_LOGIN_AT TIMESTAMP NULL
 );
 
-CREATE INDEX idx_username ON account(USERNAME);
-CREATE INDEX idx_email ON account(EMAIL);
-CREATE INDEX idx_status ON account(STATUS);
+CREATE INDEX idx_username ON account (USERNAME);
+CREATE INDEX idx_email ON account (EMAIL);
+CREATE INDEX idx_status ON account (STATUS);
