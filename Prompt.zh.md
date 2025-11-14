@@ -1,5 +1,9 @@
-# 新需求
+## 任务 1
 
+**任务类型：** Feature Implementation
+
+**提示词：**
+```
 需要给`Account`添加Blog功能，也就是会员博客，请根据如下要求完成需求：
 
 - 创建对应的表结构并和account表进行关联，请使用flyway创建，并创建对应的样例数据集。
@@ -9,16 +13,27 @@
 - 创建对应的单元测试，主要是Repository和Service
 
 相关的代码结构和实现，可以参考`Account`的实现。
+```
 
-# SQL注入
 
+## 任务2
+
+**任务类型：** Bug Fix
+
+**提示词：**
+```
 安全团队通过代码扫描工具发现`AccountController.java`包含SQL注入漏洞，请协助找出该问题，并修复该问题。
+```
 
-# 空指针
-     
+
+## 任务3
+
+**任务类型：** Bug Fix
+
+**提示词：**
+```
 我在日志文件中找到如下异常信息：
 
-```
 java.lang.NullPointerException: Cannot invoke "org.mvnsearch.domain.model.Account.getId()" because "account" is null
 	at org.mvnsearch.web.rest.AccountController$AccountResponse.from(AccountController.java:71) ~[classes/:na]
 	at org.mvnsearch.web.rest.AccountController.findAccountByPhone(AccountController.java:183) ~[classes/:na]
@@ -71,6 +86,6 @@ java.lang.NullPointerException: Cannot invoke "org.mvnsearch.domain.model.Accoun
 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.48.jar:10.1.48]
 	at java.base/java.lang.VirtualThread.run(VirtualThread.java:456) ~[na:na]
-```
 
 请协助修复该bug。
+```
