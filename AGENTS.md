@@ -18,7 +18,7 @@ Spring Data JDBC, Flyway for database migration, DBUnit for database test.
 - Spring Boot main class: `org.mvnsearch.SpringBoot4DemoApp`
 - project base test: `org.mvnsearch.ProjectBaseTest`，new test class should extend `org.mvnsearch.ProjectBaseTest`
 
-The project adopts Domain Driven Design architecture, and the domain model is in `org.mvnsearch.domain` package.
+The project adopts Domain Driven Design architecture, and the domain base package is `org.mvnsearch.domain`.
 
 - model package: `org.mvnsearch.domain.model`
 - service package: `org.mvnsearch.domain.service`
