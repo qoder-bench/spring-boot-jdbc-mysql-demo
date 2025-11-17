@@ -65,6 +65,7 @@ Available recipes:
   `org.jspecify.annotations.Nullable`
 - Use slf4j for logging
 - Use Jakarta EE instead of Java EE:  for example `jakarta.servlet.*` instead of `javax.servlet.*`
+- Prefer to use Java record instead of Java bean for DTO and event processing.
 
 ## Configuration
 
