@@ -1,6 +1,6 @@
 /*---
 description: account related tables
-dialect: postgresql 17.4
+dialect: mysql 9
 ---*/
 
 -- account table
