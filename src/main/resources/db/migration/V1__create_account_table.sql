@@ -1,8 +1,3 @@
-/*---
-description: account related tables
-dialect: mysql 9
----*/
-
 -- account table
 CREATE TABLE account
 (
